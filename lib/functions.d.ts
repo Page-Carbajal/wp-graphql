@@ -1,6 +1,6 @@
 import { WpSite } from "./types";
 export declare const setConfig: (site: WpSite) => void;
-export declare const testFunction: () => void;
+export declare const wpTestFunction: () => string | undefined;
 /**
  *
  */

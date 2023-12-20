@@ -1,7 +1,7 @@
 // import { testFunction, setConfig } from '../src/functions';
 
 import {WpSite} from "../lib/types";
-import {setConfig, testFunction} from "../lib/functions";
+import {setConfig, wpTestFunction} from "../lib/functions";
 
 
 describe('testFunction', () => {
@@ -14,7 +14,7 @@ describe('testFunction', () => {
   });
 
   it('returns undefined when wpGraphqlUrl is not set', () => {
-    const result = testFunction();
+    const result = wpTestFunction();
     expect(result).toBeUndefined();
   });
 
@@ -25,7 +25,7 @@ describe('testFunction', () => {
       wpGraphqlUrl: testUrl,
     });
 
-    const result = testFunction();
+    const result = wpTestFunction();
     expect(result).toBe(testUrl);
   });
 });

@@ -3,17 +3,22 @@ import {WpSite} from "./types";
 
 const wordpressSite: WpSite = {
   url: undefined,
-  wpGraphqlUrl: undefined,
+  wpGraphqlUrl: undefined
 }
 
 export const setConfig = (site: WpSite): void => {
+
+  console.log('Site: ', site);
+
   wordpressSite.url = site.url;
   wordpressSite.wpGraphqlUrl = site.wpGraphqlUrl;
 }
 
 
-export const testFunction = (): void =>{
+export const wpTestFunction = (): string|undefined =>{
   console.log('GraphQL Url: ', wordpressSite.wpGraphqlUrl);
+
+  return wordpressSite.wpGraphqlUrl;
 }
 
 

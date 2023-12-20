@@ -12,3 +12,6 @@ A JS Package to consume WordPress Posts using GraphQL
 - Created basic function to query a wordpress website
 - Added lib directory
 - Created index.ts to export public functions
+- Packaging test function to check for it
+- Refactored testFunction to wpTestFunction
+- Refactored test/functions.test.js
