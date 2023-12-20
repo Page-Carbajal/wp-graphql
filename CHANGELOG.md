@@ -9,3 +9,4 @@ A JS Package to consume WordPress Posts using GraphQL
 - Added tests directory
 - Added types.ts
 - Created function setConfig and testFunction
+- Created basic function to query a wordpress website
