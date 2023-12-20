@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "name": "wp-graphql",
+  "description": "A GraphQL Client for WordPress",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "keywords": [
+    "WordPress", "GraphQL"
+  ],
+  "author": "Page Carbajal",
+  "license": "ISC"
+}
