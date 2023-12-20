@@ -47,7 +47,7 @@ Your package.json should look like this
   "devDependencies": {
     "typescript": "^5.3.3"
   },
-  "name": "wp-graphql",
+  "name": "@your-name/wp-graphql",
   "description": "A GraphQL Client for WordPress",
   "version": "1.0.0",
   "main": "./src/index.js",
@@ -59,3 +59,15 @@ Your package.json should look like this
   "license": "ISC"
 }
 ```
+
+Now the basic package is done, you can create typescript files inside the **src** directory
+
+To install the package you can use the git version from this tutorial 
+
+```bash
+$ npm install --save https://medium.com/pravin-lolage/how-to-use-your-own-package-from-git-repository-as-a-node-module-8b543c13957e
+```
+
+And now you should be able to import using the name of your package lik this
+
+

@@ -64,7 +64,7 @@ export async function wpSiteInfo(): Promise<{title: string, description: string}
  *
  * @param categoryId
  */
-export async function wpPublishedPostsSlugsByCategory(categoryId: number) {
+export async function wpPublishedPostsSlugsByCategoryId(categoryId: number) {
 
   const data = await fetchAPI(`
   {

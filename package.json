@@ -8,9 +8,10 @@
   "name": "@page-carbajal/wp-graphql",
   "description": "A GraphQL Client for WordPress",
   "version": "1.0.0",
-  "main": "./src/index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "npx tsc",
+    "build": "tsc",
     "test": "jest"
   },
   "keywords": [
