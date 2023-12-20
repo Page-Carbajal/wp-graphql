@@ -1,5 +1,8 @@
 # How to Create this package
 
+From this [CodeMentor](https://www.codementor.io/@dhananjaykumar/build-and-publish-an-npm-typescript-package-1jklrmbf2g) tutorial.
+
+
 
 ```bash
 # 1. Install TS globally

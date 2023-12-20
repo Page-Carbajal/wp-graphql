@@ -6,3 +6,6 @@ A JS Package to consume WordPress Posts using GraphQL
 
 - Created a package to re-use code across projects
 - First commit
+- Added tests directory
+- Added types.ts
+- Created function setConfig and testFunction
