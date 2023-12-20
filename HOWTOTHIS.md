@@ -62,7 +62,7 @@ Your package.json should look like this
 
 Now the basic package is done, you can create typescript files inside the **src** directory
 
-To install the package you can use the git version from this tutorial 
+To install the package you can use the git version from [this](https://medium.com/pravin-lolage/how-to-use-your-own-package-from-git-repository-as-a-node-module-8b543c13957e) tutorial 
 
 ```bash
 $ npm install --save https://medium.com/pravin-lolage/how-to-use-your-own-package-from-git-repository-as-a-node-module-8b543c13957e
