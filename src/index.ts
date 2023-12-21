@@ -1,4 +1,8 @@
 export {
+  WpGraphQlRequest
+} from "./types";
+
+export {
   setConfig,
   wpSiteInfo,
   wpTestFunction,
@@ -12,3 +16,4 @@ export {
   formatDate,
   getTextStringFromHtml
 } from "./support"
+
