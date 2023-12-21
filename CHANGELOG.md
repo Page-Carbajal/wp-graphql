@@ -6,6 +6,9 @@ A JS Package to consume WordPress Posts using GraphQL
 
 - Created function wpRequestPosts
 - Version 1.1.0
+- Added test for wpRequestPosts
+- Fixed wpRequestPosts payload
+- Refactored wpRequestPosts to return promise
 
 
 ### December 19th

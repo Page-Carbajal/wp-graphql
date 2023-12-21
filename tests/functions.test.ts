@@ -1,7 +1,7 @@
 // import { testFunction, setConfig } from '../src/functions';
 
 import {WpSite} from "../lib/types";
-import {setConfig, wpTestFunction} from "../lib/functions";
+import {setConfig, wpTestFunction, wpRequestPosts} from "../lib/functions";
 
 
 describe('testFunction', () => {
@@ -27,5 +27,21 @@ describe('testFunction', () => {
 
     const result = wpTestFunction();
     expect(result).toBe(testUrl);
+  });
+});
+
+describe('wpRequestPosts', () => {
+  // Set configuration before tests
+  beforeEach(() => {
+    setConfig({
+      url: 'https://pagecarbajal.com/',
+      wpGraphqlUrl: 'https://pagecarbajal.com/graphql',
+    });
+  });
+
+  it('Returns posts', async () => {
+    const response = await wpRequestPosts({pageSize: 3});
+    //console.log('Response: ', response?.posts?.nodes ?? []);
+    expect(response).toHaveProperty('posts.nodes');
   });
 });

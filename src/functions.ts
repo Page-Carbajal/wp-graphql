@@ -159,5 +159,6 @@ export async function wpRequestPosts(args: WpGraphQlRequest): Promise<any> {
     }
   }
   `;
-  const request = await fetchAPI(payload);
+
+  return fetchAPI(payload);
 }
