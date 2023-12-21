@@ -150,9 +150,14 @@ export async function wpRequestPosts(args: WpGraphQlRequest): Promise<any> {
   const defaultFields = ['databaseId', 'date', 'slug', 'title', 'excerpt', 'content'];
   const fields = Array.isArray(args?.fields) ? args.fields.join(' ') : defaultFields.join(' ');
   const status = !args?.status ? 'PUBLISH' : args.status;
-  const request = await fetchAPI(`posts(first: ${pageSize}, where: {status: ${status} ${categoryFilter}){
-    nodes {
-      ${fields}
+  const payload = `
+    {
+    posts(first: ${pageSize}, where: {status:  ${status} ${categoryFilter}}) {
+      nodes {
+        ${fields}
+      }
     }
-  }`);
+  }
+  `;
+  const request = await fetchAPI(payload);
 }
