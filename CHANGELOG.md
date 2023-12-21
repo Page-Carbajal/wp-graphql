@@ -2,6 +2,12 @@
 
 A JS Package to consume WordPress Posts using GraphQL
 
+### December 20th 
+
+- Created function wpRequestPosts
+- Version 1.1.0
+
+
 ### December 19th
 
 - Created a package to re-use code across projects

@@ -1,4 +1,4 @@
-import {WpSite} from "./types";
+import {WpGraphQlRequest, WpSite} from "./types";
 
 
 const wordpressSite: WpSite = {
@@ -15,27 +15,27 @@ export const setConfig = (site: WpSite): void => {
 }
 
 
-export const wpTestFunction = (): string|undefined =>{
+export const wpTestFunction = (): string | undefined => {
   console.log('GraphQL Url: ', wordpressSite.wpGraphqlUrl);
 
   return wordpressSite.wpGraphqlUrl;
 }
 
 
-async function fetchAPI(query: string, { variables }:any = {}) {
+async function fetchAPI(query: string, {variables}: any = {}) {
 
-  if( !wordpressSite.wpGraphqlUrl ){
+  if (!wordpressSite.wpGraphqlUrl) {
     console.log('********** GRAPHQL_URL IS UNDEFINED ************');
 
     return {data: null};
   }
 
 
-  const headers = { 'Content-Type': 'application/json' };
+  const headers = {'Content-Type': 'application/json'};
   const res = await fetch(wordpressSite.wpGraphqlUrl, {
     method: 'POST',
     headers,
-    body: JSON.stringify({ query, variables }),
+    body: JSON.stringify({query, variables}),
   });
 
   const json = await res.json();
@@ -51,7 +51,7 @@ async function fetchAPI(query: string, { variables }:any = {}) {
 /**
  *
  */
-export async function wpSiteInfo(): Promise<{title: string, description: string}>{
+export async function wpSiteInfo(): Promise<{ title: string, description: string }> {
   const data = await fetchAPI(`
   {
     generalSettings {
@@ -143,3 +143,16 @@ export async function wpLatestPublishedPostsByCategoryId(categoryId: number) {
   return data?.posts;
 }
 
+
+export async function wpRequestPosts(args: WpGraphQlRequest): Promise<any> {
+  const pageSize = args?.pageSize ?? 100;
+  const categoryFilter = !args?.categoryId ? '' : `, categoryId: ${args.categoryId}`;
+  const defaultFields = ['databaseId', 'date', 'slug', 'title', 'excerpt', 'content'];
+  const fields = Array.isArray(args?.fields) ? args.fields.join(' ') : defaultFields.join(' ');
+  const status = !args?.status ? 'PUBLISH' : args.status;
+  const request = await fetchAPI(`posts(first: ${pageSize}, where: {status: ${status} ${categoryFilter}){
+    nodes {
+      ${fields}
+    }
+  }`);
+}

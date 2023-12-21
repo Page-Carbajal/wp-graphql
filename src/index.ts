@@ -4,7 +4,8 @@ export {
   wpTestFunction,
   wpPostBySlug,
   wpPublishedPostsSlugsByCategoryId,
-  wpLatestPublishedPostsByCategoryId
+  wpLatestPublishedPostsByCategoryId,
+  wpRequestPosts
 } from "./functions";
 
 export {
