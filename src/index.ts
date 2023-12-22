@@ -1,4 +1,5 @@
 export {
+  WpGraphQlSort,
   WpGraphQlRequest
 } from "./types";
 

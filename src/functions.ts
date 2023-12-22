@@ -1,4 +1,4 @@
-import {WpGraphQlRequest, WpSite} from "./types";
+import {WpGraphQlRequest, WpGraphQlSort, WpSite} from "./types";
 
 
 const wordpressSite: WpSite = {
@@ -147,12 +147,16 @@ export async function wpLatestPublishedPostsByCategoryId(categoryId: number) {
 export async function wpRequestPosts(args: WpGraphQlRequest): Promise<any> {
   const pageSize = args?.pageSize ?? 100;
   const categoryFilter = !args?.categoryId ? '' : `, categoryId: ${args.categoryId}`;
-  const defaultFields = ['databaseId', 'date', 'slug', 'title', 'excerpt', 'content'];
+  const defaultFields = ['databaseId', 'date', 'slug', 'title', 'excerpt', 'content', 'status'];
   const fields = Array.isArray(args?.fields) ? args.fields.join(' ') : defaultFields.join(' ');
   const status = !args?.status ? 'PUBLISH' : args.status;
+  const orderBy: WpGraphQlSort = {
+    fieldName: args?.orderBy?.fieldName ?? 'DATE',
+    direction: args?.orderBy?.fieldName ?? 'DESC',
+  }
   const payload = `
     {
-    posts(first: ${pageSize}, where: {status:  ${status} ${categoryFilter}}) {
+    posts(first: ${pageSize}, where: {status:  ${status} ${categoryFilter}}, orderBy: {field: ${orderBy.fieldName}, order: ${orderBy.direction}}) {
       nodes {
         ${fields}
       }

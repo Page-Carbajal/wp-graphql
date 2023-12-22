@@ -2,6 +2,13 @@
 
 A JS Package to consume WordPress Posts using GraphQL
 
+### December 21st 
+
+- Added status to the default fields
+- Added OrderBy to wpRequestPosts
+- Created new type WpGrapQlSort
+
+
 ### December 20th 
 
 - Created function wpRequestPosts
