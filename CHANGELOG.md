@@ -2,6 +2,11 @@
 
 A JS Package to consume WordPress Posts using GraphQL
 
+### December 30th 
+
+- Fixed issue with wpRequestPosts method
+
+
 ### December 21st 
 
 - Added status to the default fields

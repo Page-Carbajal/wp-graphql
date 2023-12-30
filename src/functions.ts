@@ -30,6 +30,8 @@ async function fetchAPI(query: string, {variables}: any = {}) {
     return {data: null};
   }
 
+  console.log(' >>> Query String: ', query)
+  console.log(' >>> Variables: ', variables)
 
   const headers = {'Content-Type': 'application/json'};
   const res = await fetch(wordpressSite.wpGraphqlUrl, {
@@ -156,7 +158,17 @@ export async function wpRequestPosts(args: WpGraphQlRequest): Promise<any> {
   }
   const payload = `
     {
-    posts(first: ${pageSize}, where: {status:  ${status} ${categoryFilter}}, orderBy: {field: ${orderBy.fieldName}, order: ${orderBy.direction}}) {
+    posts
+    ( first: ${pageSize}, 
+      where: {
+                status: ${status} 
+                ${categoryFilter}
+        orderby: {
+                  field: ${orderBy.fieldName}, 
+                  order: ${orderBy.direction}
+                  }
+            }                  
+      ){
       nodes {
         ${fields}
       }
