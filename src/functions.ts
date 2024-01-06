@@ -7,8 +7,7 @@ const wordpressSite: WpSite = {
 }
 
 export const setConfig = (site: WpSite): void => {
-
-  console.log('Site: ', site);
+  // console.log('Site: ', site);
 
   wordpressSite.url = site.url;
   wordpressSite.wpGraphqlUrl = site.wpGraphqlUrl;
@@ -16,7 +15,7 @@ export const setConfig = (site: WpSite): void => {
 
 
 export const wpTestFunction = (): string | undefined => {
-  console.log('GraphQL Url: ', wordpressSite.wpGraphqlUrl);
+  // console.log('GraphQL Url: ', wordpressSite.wpGraphqlUrl);
 
   return wordpressSite.wpGraphqlUrl;
 }
@@ -30,8 +29,8 @@ async function fetchAPI(query: string, {variables}: any = {}) {
     return {data: null};
   }
 
-  console.log(' >>> Query String: ', query)
-  console.log(' >>> Variables: ', variables)
+  // console.log(' >>> Query String: ', query)
+  // console.log(' >>> Variables: ', variables)
 
   const headers = {'Content-Type': 'application/json'};
   const res = await fetch(wordpressSite.wpGraphqlUrl, {
@@ -41,8 +40,9 @@ async function fetchAPI(query: string, {variables}: any = {}) {
   });
 
   const json = await res.json();
+
   if (json.errors) {
-    console.log(json.errors);
+    // console.log(json.errors);
     throw new Error('Failed to fetch API');
   }
 

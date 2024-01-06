@@ -2,6 +2,13 @@
 
 A JS Package to consume WordPress Posts using GraphQL
 
+### January 5th
+
+- Removed logging
+
+
+## 2023
+
 ### December 30th 
 
 - Fixed issue with wpRequestPosts method
